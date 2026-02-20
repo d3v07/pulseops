@@ -1,0 +1,61 @@
+{
+  "name": "pulseops",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Real-time analytics SaaS platform",
+  "workspaces": [
+    "services/*",
+    "web",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"pnpm dev:ingest-api\" \"pnpm dev:graphql-api\" \"pnpm dev:worker\" \"pnpm dev:web\"",
+    "dev:ingest-api": "pnpm --filter @pulseops/ingest-api dev",
+    "dev:graphql-api": "pnpm --filter @pulseops/graphql-api dev",
+    "dev:worker": "pnpm --filter @pulseops/worker dev",
+    "dev:web": "pnpm --filter @pulseops/web dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "test:unit": "pnpm -r test:unit",
+    "test:integration": "pnpm -r test:integration",
+    "test:e2e": "playwright test",
+    "test:coverage": "pnpm -r test:coverage",
+    "test:load": "k6 run scripts/load-test.js",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "db:migrate": "pnpm --filter @pulseops/ingest-api db:migrate",
+    "db:seed": "pnpm --filter @pulseops/ingest-api db:seed",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "bootstrap": "pnpm install && pnpm docker:up && sleep 10 && pnpm db:migrate && pnpm db:seed",
+    "startup": "pnpm docker:up && pnpm dev",
+    "shutdown": "docker-compose down",
+    "secure": "pnpm audit && pnpm -r lint:security",
+    "validate": "pnpm typecheck && pnpm lint && pnpm test",
+    "health": "./scripts/health-check.sh"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.1",
+    "@types/node": "^20.10.5",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "@vitest/coverage-v8": "^4.0.18",
+    "@vitest/ui": "^4.0.18",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-security": "^2.1.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.1.1"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0",
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
+}
