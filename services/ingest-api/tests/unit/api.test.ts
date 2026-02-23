@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeAll, afterAll } from 'vitest';
+import { describe, it, expect, beforeAll, afterAll } from '@jest/globals';
 import Fastify from 'fastify';
 import { Pool } from 'pg';
 import Redis from 'ioredis';
