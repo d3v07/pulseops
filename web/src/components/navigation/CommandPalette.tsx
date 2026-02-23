@@ -3,13 +3,12 @@ import { Command } from 'cmdk';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Search, BarChart3, Bell, Download, Clock, Database,
-  Users, Zap, Settings, Share2, Filter, PlusCircle,
-  Play, Pause, FileText, Layers, Target, TrendingUp,
+  Users, Zap, Settings, Share2, PlusCircle,
+  FileText, Layers, Target, TrendingUp,
   AlertTriangle, Eye, Code, RefreshCw, Moon, Keyboard
 } from 'lucide-react';
 import { useUIStore } from '../../stores/uiStore';
 import { useCommandStore } from '../../stores/commandStore';
-import { cn } from '../../lib/utils';
 
 const defaultCommands = [
   // Data Exploration

@@ -8,19 +8,10 @@
 
 import React from 'react';
 import {
-  Inbox,
   Search,
   AlertTriangle,
   WifiOff,
   Clock,
-  Rocket,
-  Sparkles,
-  BarChart3,
-  Activity,
-  Zap,
-  Coffee,
-  Target,
-  TrendingUp
 } from 'lucide-react';
 
 // ============================================

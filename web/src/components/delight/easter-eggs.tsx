@@ -611,7 +611,7 @@ interface ClickCounterProps {
 }
 
 export function ClickCounter({ children, targetClicks, onReach, resetAfter = 2000 }: ClickCounterProps) {
-  const [clicks, setClicks] = useState(0);
+  const [, setClicks] = useState(0);
   const [reached, setReached] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 

@@ -150,14 +150,14 @@ export function Dashboard() {
   const topEvents = data?.topEvents ?? [];
 
   const momentumData = useMemo(() => (
-    dauSeries.map((point) => ({
+    dauSeries.map((point: any) => ({
       name: format(new Date(point.date), 'MMM d'),
       users: point.value,
     }))
   ), [dauSeries]);
 
   const eventMixData = useMemo(() => (
-    topEvents.map((event) => ({
+    topEvents.map((event: any) => ({
       name: event.eventName,
       value: event.count,
     }))
@@ -170,8 +170,8 @@ export function Dashboard() {
   }, [recentEvents, activeFilter]);
 
   const eventShare = useMemo(() => {
-    const total = eventMixData.reduce((sum, event) => sum + event.value, 0) || 1;
-    return eventMixData.slice(0, 4).map((event) => ({
+    const total = eventMixData.reduce((sum: number, event: any) => sum + event.value, 0) || 1;
+    return eventMixData.slice(0, 4).map((event: any) => ({
       id: event.name,
       label: event.name,
       share: Math.round((event.value / total) * 100),
@@ -189,8 +189,8 @@ export function Dashboard() {
   const avgEventVolume = average(seriesValues);
   const velocityChange = avgEventVolume ? ((lastEventVolume - avgEventVolume) / avgEventVolume) * 100 : 0;
 
-  const recentDau = dauSeries.slice(-7).map((point) => point.value);
-  const priorDau = dauSeries.slice(-14, -7).map((point) => point.value);
+  const recentDau = dauSeries.slice(-7).map((point: any) => point.value);
+  const priorDau = dauSeries.slice(-14, -7).map((point: any) => point.value);
   const recentDauAvg = average(recentDau);
   const priorDauAvg = average(priorDau);
   const dauDelta = priorDauAvg ? ((recentDauAvg - priorDauAvg) / priorDauAvg) * 100 : 0;
@@ -449,7 +449,7 @@ export function Dashboard() {
             {eventShare.length === 0 ? (
               <p className="text-xs text-muted">No events processed yet.</p>
             ) : (
-              eventShare.map((segment) => (
+              eventShare.map((segment: any) => (
                 <div key={segment.id}>
                   <div className="flex items-center justify-between text-sm text-muted">
                     <span>{segment.label}</span>

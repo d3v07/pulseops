@@ -7,8 +7,8 @@
  * Inspired by: Linear, Vercel, Raycast, Stripe
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Check, AlertCircle, RefreshCw, Search, Zap, Sparkles } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Check, AlertCircle, RefreshCw, Search, Sparkles } from 'lucide-react';
 
 // ============================================
 // 1. ANIMATED NUMBER COUNTER
@@ -582,7 +582,7 @@ interface TooltipProps {
   position?: 'top' | 'bottom' | 'left' | 'right';
 }
 
-export function Tooltip({ content, children, position = 'top' }: TooltipProps) {
+export function Tooltip({ content, children }: TooltipProps) {
   return (
     <div className="tooltip" data-tooltip={content}>
       {children}

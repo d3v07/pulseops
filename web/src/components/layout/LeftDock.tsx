@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ElementType, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   LayoutDashboard, Activity, Users, GitBranch, Bell,
@@ -7,13 +7,13 @@ import {
 import { useUIStore } from '../../stores/uiStore';
 import { cn } from '../../lib/utils';
 
-const primaryNav = [
+const primaryNav: { id: string; icon: ElementType; label: string; badge?: string }[] = [
   { id: 'dashboard', icon: LayoutDashboard, label: 'Overview' },
   { id: 'events', icon: Activity, label: 'Signals' },
   { id: 'users', icon: Users, label: 'Audience' },
   { id: 'funnels', icon: GitBranch, label: 'Journey' },
   { id: 'alerts', icon: Bell, label: 'Alerts', badge: '3' },
-] as const;
+];
 
 const savedViews = [
   { id: 'saved-1', label: 'Revenue Pulse' },
