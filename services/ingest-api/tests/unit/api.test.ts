@@ -81,7 +81,7 @@ describe('Ingest API - Event Ingestion', () => {
         app = Fastify({ logger: false });
 
         // Mock event endpoint
-        app.post('/api/v1/events', async (request, reply) => {
+        app.post('/api/v1/events', async (request: any, reply: any) => {
             const event = request.body as any;
 
             // Validate event

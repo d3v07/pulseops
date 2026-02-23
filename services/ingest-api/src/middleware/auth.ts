@@ -1,10 +1,9 @@
 import { FastifyRequest, FastifyReply } from 'fastify';
 import { Pool } from 'pg';
 import Redis from 'ioredis';
-import bcrypt from 'bcrypt';
 
-export function apiKeyAuth(db: Pool, redis: Redis) {
-    return async (req: FastifyRequest, reply: FastifyReply): Promise<void> => {
+export function apiKeyAuth(_db: Pool, _redis: Redis) {
+    return async (req: FastifyRequest, _reply: FastifyReply): Promise<void> => {
         // TEMPORARY: Skip API key validation for initial testing
         req.orgId = '00000000-0000-0000-0000-000000000001';
         req.projectId = '00000000-0000-0000-0000-000000000002';

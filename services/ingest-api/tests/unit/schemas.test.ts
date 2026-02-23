@@ -1,4 +1,4 @@
-import { eventValidationSchema } from '../src/schemas/event';
+import { eventValidationSchema } from '../../src/schemas/event';
 import { describe, it, expect } from '@jest/globals';
 
 describe('Event Validation Schema', () => {

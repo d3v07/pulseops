@@ -13,7 +13,6 @@ import { Pool } from 'pg';
 import { randomUUID } from 'node:crypto';
 import { eventValidationSchema, type Event } from './schemas/event';
 import { apiKeyAuth } from './middleware/auth';
-import { logger } from './utils/logger';
 
 const PORT = parseInt(process.env.PORT || '3001', 10);
 const KAFKA_BROKERS = (process.env.KAFKA_BROKERS || 'localhost:9092').split(',');
